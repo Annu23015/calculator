@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>calculator</title>
+    <style>
+        .cal{
+            width: 200px;
+            height:300px;
+            background-color: rgba(85, 85, 83, 0.801);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap:5px;
+            padding: 15px;
+            margin: auto;
+            border: 6px solid rgb(66, 66, 66);
+
+        }
+        .in{
+            width: 100%;
+            height: 30px;
+            grid-column: 1/span 4;
+            padding: 0px;
+
+            
+        }
+        .in input[type="text"]
+        {
+            width:100%;
+            height: 100%;
+            box-sizing: border-box;
+            /* background: transparent; */
+            outline: none;
+            border: none;
+            /* color: white; */
+            text-align: right;
+            
+        }
+        .d1{
+            background-color:rgb(247, 241, 241);
+            text-align: center;
+             padding-top: 15px;   
+        }
+         .d1:hover .x{
+
+         }
+
+
+    </style>
+</head>
+<body>
+    <div class="cal">
+        <div class="in" style="padding: 0px;"><input type="text" value="" id="t1" /></div>
+        <div class="d1" style="color: rgb(219, 78, 78);" onclick="cl()">AC</div>
+        <div class="d1" style="color: rgb(219, 78, 78);" onclick="cr()">C</div>
+        <div class="d1" style="color: rgb(219, 78, 78);" onclick="fun('%')"><i class="fa-solid fa-percent x"></i></div>
+        <div class="d1" style="color: rgb(219, 78, 78);" onclick="fun('/')"><i class="fa-solid fa-divide"></i></div>
+        <div class="d1" onclick="fun(7)">7</div>
+        <div class="d1" onclick="fun(8)">8</div>
+        <div class="d1" onclick="fun(9)">9</div>
+        <div class="d1" style="color: rgb(219, 78, 78);" onclick="fun('*')"><i class="fa-solid fa-xmark"></i></div>
+        <div class="d1" onclick="fun(4)">4</div>
+        <div class="d1" onclick="fun(5)">5</div>
+        <div class="d1" onclick="fun(6)">6</div>
+        <div class="d1" style="color: rgb(219, 78, 78);" onclick="fun('-')"><i class="fa-solid fa-minus"></i></div>
+        <div class="d1" onclick="fun('1')">1</div>
+        <div class="d1" onclick="fun('2')">2</div>
+        <div class="d1" onclick="fun('3')">3</div>
+        <div class="d1" style="color: rgb(219, 78, 78);" onclick="fun('+')"><i class="fa-solid fa-plus"></i></div>
+        <div class="d1" onclick="fun('00')">00</div>
+        <div class="d1" onclick="fun(0)">0</div>
+        <div class="d1" style=" font-weight: bolder; font-size: 30px; padding-top: 0px;" onclick="fun('.')">.</div>
+        <div class="d1" style="color: rgb(219, 78, 78);" onclick="eq()"><i class="fa-solid fa-equals"></i></div>
+
+    </div>
+    <script>
+        let rs="";
+         let t1=document.getElementById('t1')
+        fun=(e)=>{
+
+                rs=rs+e 
+            t1.value=rs
+        }
+        eq=()=>{
+            if(rs!="")
+            t1.value=eval(t1.value)
+        }
+        cr=()=>{
+            rs=rs.slice(0,rs.length-1)
+            t1.value=rs
+        }
+        cl=()=>{
+            rs=""
+            t1.value=""
+        }
+    
+        
+
+
+    </script>
+    
+</body>
+</html>
